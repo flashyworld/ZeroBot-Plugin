@@ -82,7 +82,7 @@ func init() { // 插件主体
 					"唔......吧唧...早上...哈啊啊~~~\n早上好......",
 					"早上好......",
 					"早上好呜......呼啊啊~~~~",
-					"啊......早上好。\n昨晚也很激情呢！",
+					"啊......早上好。\n昨晚也睡得很安稳呢！",
 					"吧唧吧唧......怎么了...已经早上了么...",
 					"早上好！",
 					"......看起来像是傍晚，其实已经早上了吗？",
@@ -91,8 +91,8 @@ func init() { // 插件主体
 			case now >= 9 && now < 18:
 				ctx.SendChain(message.Reply(ctx.Event.MessageID), randText(
 					"哼！这个点还早啥，昨晚干啥去了！？",
-					"熬夜了对吧熬夜了对吧熬夜了对吧？？？！",
-					"是不是熬夜是不是熬夜是不是熬夜？！",
+					"你熬夜了对吧？？？！",
+					"你是不是熬夜了？！",
 				))
 			case now >= 18 && now < 24:
 				ctx.SendChain(message.Reply(ctx.Event.MessageID), randText(
@@ -109,7 +109,7 @@ func init() { // 插件主体
 				process.SleepAbout1sTo2s()
 				ctx.SendChain(message.Reply(ctx.Event.MessageID), randText(
 					"午安w",
-					"午觉要好好睡哦，ATRI会陪伴在你身旁的w",
+					"午觉要好好睡哦，小曦会陪伴在你身旁的w",
 					"嗯哼哼~睡吧，就像平常一样安眠吧~o(≧▽≦)o",
 					"睡你午觉去！哼唧！！",
 				))
@@ -139,7 +139,7 @@ func init() { // 插件主体
 			case now >= 11 && now < 15:
 				ctx.SendChain(message.Reply(ctx.Event.MessageID), randText(
 					"午安w",
-					"午觉要好好睡哦，ATRI会陪伴在你身旁的w",
+					"午觉要好好睡哦，小曦会陪伴在你身旁的w",
 					"嗯哼哼~睡吧，就像平常一样安眠吧~o(≧▽≦)o",
 					"睡你午觉去！哼唧！！",
 				))
@@ -158,22 +158,22 @@ func init() { // 插件主体
 				))
 			}
 		})
-	engine.OnKeywordGroup([]string{"高性能", "太棒了", "すごい", "sugoi", "斯国一", "よかった"}, isAtriSleeping, zero.OnlyToMe).SetBlock(true).
+	engine.OnKeywordGroup([]string{"聪明", "太棒了", "すごい", "sugoi", "斯国一", "よかった"}, isAtriSleeping, zero.OnlyToMe).SetBlock(true).
 		Handle(func(ctx *zero.Ctx) {
 			process.SleepAbout1sTo2s()
 			ctx.SendChain(randText(
-				"当然，我是高性能的嘛~！",
-				"小事一桩，我是高性能的嘛",
-				"怎么样？还是我比较高性能吧？",
-				"哼哼！我果然是高性能的呢！",
-				"因为我是高性能的嘛！嗯哼！",
-				"因为我是高性能的呢！",
-				"哎呀~，我可真是太高性能了",
-				"正是，因为我是高性能的",
+				"当然，我是聪明的嘛~！",
+				"小事一桩，我是超级厉害的嘛",
+				"怎么样？还是我比较厉害吧？",
+				"哼哼！我果然是聪明的呢！",
+				"因为我是超级厉害的嘛！嗯哼！",
+				"因为我是聪明的的呢！",
+				"哎呀~，我可真是太厉害了",
+				"正是，因为我是超级厉害的",
 				"是的。我是高性能的嘛♪",
-				"毕竟我可是高性能的！",
+				"毕竟我可是聪明的！",
 				"嘿嘿，我的高性能发挥出来啦♪",
-				"我果然是很高性能的机器人吧！",
+				"我果然是很高性能的人吧！",
 				"是吧！谁叫我这么高性能呢！哼哼！",
 				"交给我吧，有高性能的我陪着呢",
 				"呣......我的高性能，毫无遗憾地施展出来了......",
@@ -251,7 +251,7 @@ func randRecord(file ...string) message.MessageSegment {
 	return message.Record(res + file[rand.Intn(len(file))])
 }
 
-// isAtriSleeping 凌晨0点到6点，ATRI 在睡觉，不回应任何请求
+// isAtriSleeping 凌晨0点到6点，小曦 在睡觉，不回应任何请求
 func isAtriSleeping(ctx *zero.Ctx) bool {
 	if now := time.Now().Hour(); now >= 1 && now < 6 {
 		return false
